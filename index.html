@@ -3,80 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadia Islam Meem | CV Portfolio</title>
+    <title>Sadia Islam Meem | Digital Marketing Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
-            --primary-color: #6c5ce7; /* Elegant Purple */
-            --secondary-color: #2d3436; /* Dark Slate */
-            --accent-color: #a29bfe;
-            --light-bg: #f9f9f9;
-            --text-color: #333;
+            /* Pink & White Theme Palette */
+            --primary-pink: #ff4757;      /* Vivid Pink */
+            --soft-pink: #ffe2e6;         /* Light Pink Background */
+            --dark-text: #2f3542;         /* Dark Grey for text */
+            --white: #ffffff;
+            --gradient-bg: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            
+            /* 3D Shadows */
+            --shadow-3d: 0 20px 40px rgba(255, 71, 87, 0.2);
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 6px 6px rgba(0,0,0,0.05);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: white;
+            background-color: #fff0f3; /* Very light pink tint */
+            color: var(--dark-text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HEADER & HERO */
+        /* === 3D HEADER SECTION === */
         header {
-            background: linear-gradient(135deg, var(--secondary-color), #0f141a);
-            color: white;
-            padding: 80px 20px;
+            background: var(--gradient-bg);
+            padding: 100px 20px;
             text-align: center;
+            border-bottom-left-radius: 50% 10%;
+            border-bottom-right-radius: 50% 10%;
+            box-shadow: 0 15px 30px rgba(255, 154, 158, 0.4);
             position: relative;
+            z-index: 1;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            /* 3D Pop Effect */
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+            transition: transform 0.5s ease;
+        }
+
+        .profile-container:hover {
+            transform: translateY(-10px) scale(1.02);
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.2);
+            border: 6px solid var(--white);
             object-fit: cover;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin: 0;
-            letter-spacing: 2px;
+            color: var(--dark-text);
             text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
         }
 
         header .subtitle {
-            font-size: 1.3rem;
-            color: var(--accent-color);
+            font-size: 1.2rem;
+            color: #57606f;
+            background: rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
             margin-top: 10px;
-            font-weight: 500;
+            backdrop-filter: blur(5px);
         }
 
         .contact-info {
-            margin-top: 25px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            font-size: 0.95rem;
         }
 
-        .contact-info span i {
-            color: var(--accent-color);
-            margin-right: 8px;
+        .contact-pill {
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--primary-pink);
+            text-decoration: none;
+            border: 1px solid transparent;
         }
 
-        /* SECTION STYLES */
+        .contact-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+            background: var(--primary-pink);
+            color: white;
+        }
+
+        /* === MAIN LAYOUT === */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -85,182 +118,258 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--secondary-color);
-            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 50px;
+            text-transform: uppercase;
             position: relative;
-            padding-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-
+        
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: var(--primary-pink);
+            margin: 10px auto;
+            border-radius: 10px;
         }
 
-        /* PROFILE SUMMARY */
+        /* === 3D SUMMARY CARD === */
         .summary-box {
-            background-color: var(--light-bg);
-            padding: 35px;
-            border-radius: 15px;
-            border-left: 8px solid var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-3d);
             font-size: 1.1rem;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            border-left: 10px solid var(--primary-pink);
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+        
+        .summary-box:hover {
+            transform: rotateX(2deg) translateY(-5px);
         }
 
-        /* GRID LAYOUTS */
+        /* === SKILLS GRID (Floating Cards) === */
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-        }
-
-        /* SKILLS */
         .skill-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
             display: flex;
             align-items: center;
-            gap: 15px;
-            transition: 0.3s;
+            gap: 20px;
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
         }
 
         .skill-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--primary-pink);
         }
 
-        .skill-card i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: var(--soft-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
         }
 
-        /* EXPERIENCE & EDUCATION */
+        .skill-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #57606f;
+        }
+
+        /* === EXPERIENCE TIMELINE (3D Look) === */
         .timeline-item {
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-bottom: 3px solid #eee;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #ddd;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--primary-pink);
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .timeline-item h3 {
             margin: 0;
-            color: var(--primary-color);
+            color: var(--primary-pink);
+            font-size: 1.4rem;
         }
 
         .timeline-item .company {
             font-weight: bold;
-            color: var(--secondary-color);
+            color: #2f3542;
             display: block;
             margin: 5px 0;
         }
 
         .timeline-item .duration {
-            font-size: 0.9rem;
-            color: #777;
-            font-style: italic;
+            background: var(--soft-pink);
+            color: var(--primary-pink);
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
 
-        /* FOOTER */
+        /* === FOOTER === */
         footer {
-            background-color: var(--secondary-color);
-            color: #bbb;
+            background: #2f3542;
+            color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            padding: 50px 20px;
+            margin-top: 80px;
+            position: relative;
         }
-
-        footer a { color: white; text-decoration: none; }
+        
+        footer a { color: var(--primary-pink); text-decoration: none; font-weight: bold; }
+        
+        /* Mobile Fixes */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .profile-img { width: 150px; height: 150px; }
+            .contact-info { flex-direction: column; gap: 10px; }
+            .contact-pill { text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="sadia.jpg" alt="Sadia Islam Meem" class="profile-img">
+        <div class="profile-container">
+            <img src="sadia.jpg" alt="Sadia Islam Meem" class="profile-img">
+        </div>
+        
         <h1>SADIA ISLAM MEEM</h1>
-        <p class="subtitle">Digital Marketer | Virtual Assistant | Content Creator</p>
+        <div class="subtitle">Digital Marketer | Virtual Assistant | Content Creator</div>
         
         <div class="contact-info">
-            <span><i class="fas fa-phone"></i> +8801864113418</span>
-            <span><i class="fas fa-envelope"></i> sadiaislammeem11@gmail.com</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangladesh</span>
+            <a href="tel:+8801864113418" class="contact-pill">
+                <i class="fas fa-phone-alt"></i> +880 1864-113418
+            </a>
+            <a href="mailto:sadiaislammeem11@gmail.com" class="contact-pill">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <span class="contact-pill">
+                <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+            </span>
         </div>
     </header>
 
     <div class="container">
+        
         <h2 class="section-title">Profile Summary</h2>
         <div class="summary-box">
-            Proficient in digital marketing, social media management, and virtual assistance with expertise in MS Office and Google Workspace[cite: 1951]. Skilled in brand promotion, customer communication, and AI content generation[cite: 1952, 1959]. Fluent in English with strong teamwork, leadership, and problem-solving abilities[cite: 1952, 1984].
+            <p>Proficient in digital marketing, social media management, and virtual assistance with expertise in MS Office and Google Workspace. Skilled in brand promotion, customer communication, and AI content generation. Fluent in English with strong teamwork, leadership, and problem-solving abilities.</p>
         </div>
 
         <h2 class="section-title">Key Skills</h2>
         <div class="grid-2">
-            <div class="skill-card"><i class="fas fa-bullhorn"></i> Digital Marketing</div>
-            <div class="skill-card"><i class="fas fa-users"></i> Social Media Management</div>
-            <div class="skill-card"><i class="fas fa-laptop-code"></i> AI Content Generation</div>
-            <div class="skill-card"><i class="fas fa-search-plus"></i> Lead Generation</div>
-            <div class="skill-card"><i class="fas fa-database"></i> Data Mining</div>
-            <div class="skill-card"><i class="fas fa-file-invoice"></i> Virtual Assistant</div>
-            <div class="skill-card"><i class="fas fa-chart-line"></i> Server Side Tracking (GA4/GTM)</div>
-            <div class="skill-card"><i class="fas fa-comments"></i> Effective Communication</div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-bullhorn"></i></div>
+                <div class="skill-name">Digital Marketing</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-hashtag"></i></div>
+                <div class="skill-name">Social Media Management</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-robot"></i></div>
+                <div class="skill-name">AI Content Generation</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-search-dollar"></i></div>
+                <div class="skill-name">Lead Generation</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-database"></i></div>
+                <div class="skill-name">Data Mining</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-headset"></i></div>
+                <div class="skill-name">Virtual Assistant</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                <div class="skill-name">GA4 / GTM Tracking</div>
+            </div>
+            <div class="skill-card">
+                <div class="icon-box"><i class="fas fa-comments"></i></div>
+                <div class="skill-name">Fluent English</div>
+            </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 80px;">Professional Experience</h2>
+        <h2 class="section-title" style="margin-top: 80px;">Experience</h2>
+        
         <div class="timeline-item">
             <h3>Social Media Marketing</h3>
-            <span class="company">Agency & Online Marketplace [cite: 1955]</span>
-            <span class="duration">Duration: 2 Years [cite: 1956]</span>
+            <span class="company">Agency & Online Marketplace</span>
+            <span class="duration">2 Years Experience</span>
         </div>
+
         <div class="timeline-item">
-            <h3>Email & LinkedIn B2B/B2C Marketing</h3>
-            <span class="company">Agency & Online Marketplace [cite: 1973]</span>
-            <span class="duration">Duration: 2 Years [cite: 1975]</span>
+            <h3>Email & LinkedIn Marketing (B2B/B2C)</h3>
+            <span class="company">Agency & Online Marketplace</span>
+            <span class="duration">2 Years Experience</span>
         </div>
+
         <div class="timeline-item">
             <h3>Virtual Assistant & AI Content</h3>
-            <span class="company">Agency & Online Marketplace [cite: 1974]</span>
-            <span class="duration">Duration: 1 Year [cite: 1961]</span>
+            <span class="company">Agency & Online Marketplace</span>
+            <span class="duration">1 Year Experience</span>
         </div>
+
         <div class="timeline-item">
-            <h3>Server Side Tracking / GA4 / GTM</h3>
-            <span class="company">Advance Marketing [cite: 1982]</span>
-            <span class="duration">Duration: 1 Year [cite: 1983]</span>
+            <h3>Server Side Tracking (GA4/GTM)</h3>
+            <span class="company">Advance Marketing</span>
+            <span class="duration">1 Year Experience</span>
         </div>
 
         <h2 class="section-title" style="margin-top: 80px;">Education</h2>
         <div class="grid-2">
-            <div class="timeline-item">
+            <div class="timeline-item" style="border-left-color: var(--primary-pink);">
                 <h3>Hons in English</h3>
-                <span class="company">Asian University of BD (AUB) [cite: 1942]</span>
-                <span class="duration">2025 (Running) [cite: 1943]</span>
+                <span class="company">Asian University of BD (AUB)</span>
+                <span class="duration">2025 (Running)</span>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" style="border-left-color: var(--primary-pink);">
                 <h3>H.S.C (Arts)</h3>
-                <span class="company">Tongi Govt. College [cite: 1944]</span>
-                <span class="duration">GPA: 4.42 | 2022-23 [cite: 1946, 1947]</span>
+                <span class="company">Tongi Govt. College</span>
+                <span class="duration">GPA: 4.42 | 2022-23</span>
             </div>
         </div>
+
     </div>
 
     <footer>
         <p>&copy; 2025 Sadia Islam Meem. All Rights Reserved.</p>
-        <p>Email: <a href="mailto:sadiaislammeem11@gmail.com">sadiaislammeem11@gmail.com</a></p>
+        <p>Contact: <a href="mailto:sadiaislammeem11@gmail.com">sadiaislammeem11@gmail.com</a></p>
     </footer>
 
 </body>
